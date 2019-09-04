@@ -77,7 +77,7 @@ You can also have a look at the provided [example](examples/stations.yml.example
 While you can simply run YCast with root permissions listening on all interfaces on port 80, this may not be desired for various reasons.
 
 You can change the listen address and port (via `-l` and `-p` respectively) if you are already running a HTTP server on the target machine
-and/or want to proxy or restrict YCast access.
+and/or want to proxy or restrict YCast access. Addtionally you can switch from yaml station format to json with the `-t` parameter (Default is auto for autodetection). So if only station.json is available then you don't have to specify the type, but yaml will be checked first.
 
 It is advised to use a proper webserver (e.g. Nginx) in front of YCast if you can.
 Then, you also don't need to run YCast as root and can proxy the requests to YCast running on a higher port (>1024) listening only on `localhost`.
@@ -110,9 +110,10 @@ For now just station names and URLs; no web-based management interface, no cover
 
 | url | method | data | description |
 | --- | ------ | ---- | ----------- |
+| /admin/station/{catName}/{stationName} | POST | {"url":"http://mystation.de"} | add or update station in category |
+| /admin/station/{catName}/{stationName} | DELETE | - | delete station from cat|
 | /admin/category/{catName} | POST | - | add category |
 | /admin/category/{catName} | DELETE | - | remove category |
-| /admin/category/{catName}/{stationName} | POST | {"url":"http://mystation.de"} | add or update station in category |
-| /admin/category/{catName}/{stationName} | DELETE | - | delete station |
 | /admin/stations | GET | - | get complete station data |
 
+If you want to add a station to the root you can do this with category `root`.
