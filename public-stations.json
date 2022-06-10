@@ -28,5 +28,11 @@
         "url":"https://icepool.silvacast.com/GOLDFM.mp3",
         "homepage":"",
         "tags":["80s"]
+    },
+    {
+        "name":"Punkcommunity",
+        "url":"https://punkcommunity.stream.laut.fm/punkcommunity",
+        "homepage":"",
+        "tags":["Punk"]
     }
 ]
